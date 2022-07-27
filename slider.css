@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer{
+    position:relative;
+    width: 720px;
+    height: 360px;
+    background-color: gray;
+}
+
+.imageContainer img{
+    visibility: hidden;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.slider{
+    position:relative;
+}
+
+.slider .ui{
+    display: flex;
+    justify-content: space-between;
+    position:absolute;
+    top: 50%;
+    width: 100%;
+}
+
+button {
+  background-color: #00000020;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:hover {
+    background-color: #00000060;
+    cursor: pointer;
+}
