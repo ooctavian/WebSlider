@@ -1,19 +1,8 @@
 let animationOut = undefined;
 let animationIn = undefined;
 
-// const animationIn = [
-//   { opacity: '0' },
-//   { opacity: '1' }
-// ];
-
-// const animationOut = [
-//   { opacity: '1' },
-//   { opacity: '0' }
-// ];
-
-
 const animationTime = {
-  duration: 1000,
+  duration: 500,
   iterations: 1,
 }
 
@@ -26,12 +15,17 @@ const ImageSlider = class {
     this.Images[this.currentImage].style.visibility = "visible";
     this.animation = undefined;
     this.animation2 = undefined;
+    nextBtn = document.getElementById("next");
+    previousBtn = document.getElementById("previous");
+
+    nextBtn.addEventListener("click", this.nextImage);
+    previousBtn.addEventListener("click", this.previousImage);
   }
 
   changeImage(index) {
-    this.Images[index].style.visibility = "visible";
     if (typeof this.animation !== "undefined") this.animation.finish();
     if (typeof this.animation2 !== "undefined") this.animation2.finish();
+    this.Images[index].style.visibility = "visible";
     let previousImage = this.currentImage;
     let animation = this.Images[this.currentImage].animate(animationOut, animationTime);
     this.currentImage = index;
@@ -78,8 +72,3 @@ const ImageSlider = class {
 
 let slider = new ImageSlider();
 
-nextBtn = document.getElementById("next");
-previousBtn = document.getElementById("previous");
-
-nextBtn.addEventListener("click", slider.nextImage);
-previousBtn.addEventListener("click", slider.previousImage);
